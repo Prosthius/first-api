@@ -25,3 +25,6 @@
 /home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.MvcApplicationPartsAssemblyInfo.cs
 /home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.csproj.CopyComplete
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll
