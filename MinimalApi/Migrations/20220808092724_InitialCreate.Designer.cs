@@ -11,7 +11,7 @@ using PizzaStore.Models;
 namespace MinimalApi.Migrations
 {
     [DbContext(typeof(PizzaDb))]
-    [Migration("20220808072700_InitialCreate")]
+    [Migration("20220808092724_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
