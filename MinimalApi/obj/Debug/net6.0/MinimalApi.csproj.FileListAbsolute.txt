@@ -19,3 +19,9 @@
 /home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.pdb
 /home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.genruntimeconfig.cache
 /home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/ref/MinimalApi.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/callum/repos/first-api/MinimalApi/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.MvcApplicationPartsAssemblyInfo.cs
+/home/callum/repos/first-api/MinimalApi/obj/Debug/net6.0/MinimalApi.csproj.CopyComplete
