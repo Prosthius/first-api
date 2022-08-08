@@ -10,12 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Checks the configuration provider for a connection string named Pizzas. 
 // If it doesn't find one, it will use Data Source=Pizzas.db as the connection string.
 // MSSQL will map this to a file
-var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
 
 builder.Services.AddEndpointsApiExplorer();
 
 // In memory database
 // builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+// Don't think below is necessary
+// builder.Services.AddDbContext<PizzaDb>(options => options.UseSqlServer(connectionString));
 builder.Services.AddSqlServer<PizzaDb>(connectionString);
 builder.Services.AddSwaggerGen(c =>
 {
