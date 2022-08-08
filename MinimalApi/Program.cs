@@ -1,3 +1,5 @@
+// https://docs.microsoft.com/en-us/learn/paths/aspnet-core-minimal-api/
+
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using PizzaStore.Models;
@@ -5,8 +7,16 @@ using PizzaStore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Checks the configuration provider for a connection string named Pizzas. 
+// If it doesn't find one, it will use Data Source=Pizzas.db as the connection string.
+// MSSQL will map this to a file
+var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+
+// In memory database
+// builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddSqlServer<PizzaDb>(connectionString);
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
