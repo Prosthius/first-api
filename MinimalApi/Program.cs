@@ -12,13 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 // If it doesn't find one, it will use Data Source=Pizzas.db as the connection string.
 // MSSQL will map this to a file
 
+// Connection string without hiding password
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
+
 var conStrBuilder = new SqlConnectionStringBuilder(
     builder.Configuration.GetConnectionString("DefaultConnection"));
 conStrBuilder.Password = builder.Configuration["DbPassword"];
 var connectionString = conStrBuilder.ConnectionString;
-
-// Connection string without hiding password
-// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
 
 builder.Services.AddEndpointsApiExplorer();
 
