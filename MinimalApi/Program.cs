@@ -3,6 +3,7 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using PizzaStore.Models;
+using System.Data.SqlClient;
 // using PizzaStore.DB;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Checks the configuration provider for a connection string named Pizzas. 
 // If it doesn't find one, it will use Data Source=Pizzas.db as the connection string.
 // MSSQL will map this to a file
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
+
+var conStrBuilder = new SqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("DefaultConnection"));
+conStrBuilder.Password = builder.Configuration["DbPassword"];
+var connectionString = conStrBuilder.ConnectionString;
+
+// Connection string without hiding password
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
 
 builder.Services.AddEndpointsApiExplorer();
 
