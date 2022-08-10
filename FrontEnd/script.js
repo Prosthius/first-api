@@ -13,7 +13,7 @@ async function renderPizzas() {
     });
 }
 
-// GET /pizzas/{id}
+// GET /pizza/{id}
 async function fetchPizza(id) {
     id = 1;
     let response = await fetch(`http://localhost:5136/pizza/${id}`);
@@ -54,6 +54,15 @@ async function updatePizza(id) {
         method: "PUT",
         body: JSON.stringify(_dataUpdate),
         headers: {"Content-type": "application/json; charset=UTF-8"}
+    });
+    return await response.text();
+}
+
+// DELETE /pizza/{id}
+async function deletePizza(id) {
+    id = 6;
+    let response = await fetch(`http://localhost:5136/pizza/${id}`, {
+        method: "DELETE",
     });
     return await response.text();
 }
