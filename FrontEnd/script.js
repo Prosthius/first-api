@@ -41,3 +41,19 @@ async function addPizza() {
     });
     return await response.text();
 }
+
+// PUT /pizza/{id}
+let _dataUpdate = {
+    name: "Hawaiian",
+    description: "A Hawaiian pizza"
+}
+
+async function updatePizza(id) {
+    id = 3;
+    let response = await fetch(`http://localhost:5136/pizza/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(_dataUpdate),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    });
+    return await response.text();
+}
