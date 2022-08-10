@@ -26,3 +26,18 @@ async function renderPizza() {
     console.log(pizza.name);
     console.log(pizza.description);
 }
+
+// POST /pizza
+let _data = {
+    name: "Mexican",
+    description: "A Mexican pizza"
+}
+
+async function addPizza() {
+    let response = await fetch('http://localhost:5136/pizza/', {
+        method: "POST",
+        body: JSON.stringify(_data),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    });
+    return await response.text();
+}
