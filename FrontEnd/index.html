@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col">
                     <h3>GET /pizzas</h3>
-                    <button class="btn btn-outline-secondary" id="getIdBtn" onclick="fetchPizzas()">
+                    <button class="btn btn-outline-secondary" id="getIdBtn" onclick="renderPizzas()">
                         Search
                     </button>
                     <br />
@@ -27,7 +27,7 @@
         
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-3">
                     <h3>GET /pizza/{id}</h3>
                     <div class="input-group">
                         <button class="btn btn-outline-secondary" id="getIdBtn" onclick="renderPizza()">
@@ -48,6 +48,17 @@
                         </button>
                         <input type="text" class="form-control" placeholder="Pizza name" id="postName">
                         <input type="text" class="form-control" placeholder="Pizza description" id="postDescription">
+                    </div>
+                </div>
+                <div class="col-5">
+                    <h3>PUT /pizza/{id}</h3>
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" id="putIdBtn" onclick="updatePizza()">
+                            Edit
+                        </button>
+                        <input type="text" class="form-control" placeholder="Pizza ID" id="putID">
+                        <input type="text" class="form-control" placeholder="Pizza Name" id="putName">
+                        <input type="text" class="form-control" placeholder="Pizza Description" id="putDescription">
                     </div>
                 </div>
             </div>
