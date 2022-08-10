@@ -1,4 +1,4 @@
-// GET /pizza
+// GET /pizzas
 async function fetchPizzas() {
     let response = await fetch('http://localhost:5136/pizzas');
     return await response.json();
@@ -13,6 +13,7 @@ async function renderPizzas() {
     });
 }
 
+
 // GET /pizza/{id}
 async function fetchPizza(id) {
     id = 1;
@@ -26,6 +27,7 @@ async function renderPizza() {
     console.log(pizza.name);
     console.log(pizza.description);
 }
+
 
 // POST /pizza
 let _data = {
@@ -42,6 +44,7 @@ async function addPizza() {
     return await response.text();
 }
 
+
 // PUT /pizza/{id}
 let _dataUpdate = {
     name: "Hawaiian",
@@ -57,6 +60,7 @@ async function updatePizza(id) {
     });
     return await response.text();
 }
+
 
 // DELETE /pizza/{id}
 async function deletePizza(id) {
