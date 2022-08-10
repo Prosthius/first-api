@@ -12,7 +12,7 @@
     </head>
     <body onload="renderPizzas()">
         <br />
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <h3>GET /pizzas</h3>
@@ -21,10 +21,12 @@
                     </button>
                     <br />
                     <br />
-                    <div id="getPizzas">
-
-                    </div>
                 </div>
+            </div>
+            <div class="row" id="getPizzas">
+        
+            </div>
+            <div class="row">
                 <div class="col">
                     <h3>GET /pizza/{id}</h3>
                     <div class="input-group">
@@ -33,9 +35,9 @@
                         </button>
                         <input type="text" class="form-control" placeholder="Input pizza ID" id="getID">
                     </div>
-                    <br />                  
+                    <br />
                     <div id="getPizza">
-
+        
                     </div>
                 </div>
                 <div class="col">

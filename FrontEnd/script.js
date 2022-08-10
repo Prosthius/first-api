@@ -8,13 +8,15 @@ async function renderPizzas() {
     let pizzas = await fetchPizzas();
     let html = '';
     pizzas.forEach(pizza => {
-        let htmlSegment = `ID: ${pizza.id}
+        let htmlSegment = `<div class="col-4">
+                            ID: ${pizza.id}
                             <br />
                             Name: ${pizza.name}
                             <br />
                             Description: ${pizza.description}
                             <br />
-                            <br />`;
+                            <br />
+                            </div>`;
 
         html += htmlSegment;
     });
@@ -33,12 +35,12 @@ async function renderPizza() {
     let pizza = await fetchPizza();
     let html = '';
     let htmlSegment = `ID: ${pizza.id}
-                            <br />
-                            Name: ${pizza.name}
-                            <br />
-                            Description: ${pizza.description}
-                            <br />
-                            <br />`;
+                        <br />
+                        Name: ${pizza.name}
+                        <br />
+                        Description: ${pizza.description}
+                        <br />
+                        <br />`;
     html += htmlSegment;
     document.getElementById('getPizza').innerHTML = html;
 }
