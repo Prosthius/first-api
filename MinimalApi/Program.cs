@@ -6,7 +6,7 @@ using PizzaStore.Models;
 using System.Data.SqlClient;
 // using PizzaStore.DB;
 
-//CORS
+// CORS
 const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,8 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Connection string without hiding password
 // var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Pizzas.db";
 
-var conStrBuilder = new SqlConnectionStringBuilder(
-    builder.Configuration.GetConnectionString("DefaultConnection"));
+var conStrBuilder = new SqlConnectionStringBuilder(builder.Configuration.GetConnectionString("DefaultConnection"));
 conStrBuilder.Password = builder.Configuration["DbPassword"];
 var connectionString = conStrBuilder.ConnectionString;
 
