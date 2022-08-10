@@ -48,8 +48,8 @@ async function renderPizza() {
 
 // POST /pizza
 async function addPizza() {
-    let data = document.getElementById("postName").value;
-    data += document.getElementById("postDescription").value;
+    let _data = JSON.parse(`{ "name": "${document.getElementById("postName").value}", 
+        "description": "${document.getElementById("postDescription").value}"}`);
     let response = await fetch('http://localhost:5136/pizza/', {
         method: "POST",
         body: JSON.stringify(_data),
@@ -60,16 +60,13 @@ async function addPizza() {
 
 
 // PUT /pizza/{id}
-let _dataUpdate = {
-    name: "Hawaiian",
-    description: "A Hawaiian pizza"
-}
-
 async function updatePizza(id) {
-    id = 3;
+    id = document.getElementById("putID").value;
+    let _data = JSON.parse(`{ "name": "${document.getElementById("putName").value}", 
+        "description": "${document.getElementById("putDescription").value}"}`);
     let response = await fetch(`http://localhost:5136/pizza/${id}`, {
         method: "PUT",
-        body: JSON.stringify(_dataUpdate),
+        body: JSON.stringify(_data),
         headers: {"Content-type": "application/json; charset=UTF-8"}
     });
     return await response.text();
