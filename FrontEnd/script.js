@@ -6,11 +6,23 @@ async function fetchPizzas() {
 
 async function renderPizzas() {
     let pizzas = await fetchPizzas();
+    let html = '';
     pizzas.forEach(pizza => {
-        console.log(pizza.id);
-        console.log(pizza.name);
-        console.log(pizza.description);
+        let htmlSegment = `ID: ${pizza.id}
+                            <br />
+                            Name: ${pizza.name}
+                            <br />
+                            Description: ${pizza.description}
+                            <br />
+                            <br />`;
+
+        html += htmlSegment;
+        
+        /*document.getElementById('getPizzas').innerHTML = pizza.id;
+        document.getElementById('getPizzas').innerHTML = pizza.name;
+        document.getElementById('getPizzas').innerHTML = pizza.description;*/
     });
+    document.getElementById('getPizzas').innerHTML = html;
 }
 
 
