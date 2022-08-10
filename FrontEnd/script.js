@@ -75,7 +75,7 @@ async function updatePizza(id) {
 
 // DELETE /pizza/{id}
 async function deletePizza(id) {
-    id = 6;
+    id = document.getElementById("deleteID").value;
     let response = await fetch(`http://localhost:5136/pizza/${id}`, {
         method: "DELETE",
     });
