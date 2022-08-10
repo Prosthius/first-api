@@ -45,12 +45,9 @@ async function renderPizza() {
 
 
 // POST /pizza
-let _data = {
-    name: "Mexican",
-    description: "A Mexican pizza"
-}
-
 async function addPizza() {
+    let data = document.getElementById("postName").value;
+    data += document.getElementById("postDescription").value;
     let response = await fetch('http://localhost:5136/pizza/', {
         method: "POST",
         body: JSON.stringify(_data),

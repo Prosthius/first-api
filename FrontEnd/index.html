@@ -16,6 +16,11 @@
             <div class="row">
                 <div class="col">
                     <h3>GET /pizzas</h3>
+                    <button class="btn btn-outline-secondary" id="getIdBtn" onclick="fetchPizzas()">
+                        Search
+                    </button>
+                    <br />
+                    <br />
                     <div id="getPizzas">
 
                     </div>
@@ -31,6 +36,16 @@
                     <br />                  
                     <div id="getPizza">
 
+                    </div>
+                </div>
+                <div class="col">
+                    <h3>POST /pizza</h3>
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary" id="getIdBtn" onclick="addPizza()">
+                            Add
+                        </button>
+                        <input type="text" class="form-control" placeholder="Pizza name" id="postName">
+                        <input type="text" class="form-control" placeholder="Pizza description" id="postDescription">
                     </div>
                 </div>
             </div>
