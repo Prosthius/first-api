@@ -17,10 +17,6 @@ async function renderPizzas() {
                             <br />`;
 
         html += htmlSegment;
-        
-        /*document.getElementById('getPizzas').innerHTML = pizza.id;
-        document.getElementById('getPizzas').innerHTML = pizza.name;
-        document.getElementById('getPizzas').innerHTML = pizza.description;*/
     });
     document.getElementById('getPizzas').innerHTML = html;
 }
