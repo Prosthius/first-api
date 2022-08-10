@@ -1,4 +1,4 @@
-// GET pizza
+// GET /pizza
 async function fetchPizzas() {
     let response = await fetch('http://localhost:5136/pizzas');
     return await response.json();
@@ -13,7 +13,7 @@ async function renderPizzas() {
     });
 }
 
-// GET pizzas/{id}
+// GET /pizzas/{id}
 async function fetchPizza(id) {
     id = 1;
     let response = await fetch(`http://localhost:5136/pizza/${id}`);
