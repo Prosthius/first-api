@@ -24,16 +24,23 @@ async function renderPizzas() {
 
 // GET /pizza/{id}
 async function fetchPizza(id) {
-    id = 1;
+    id = document.getElementById("getID").value;
     let response = await fetch(`http://localhost:5136/pizza/${id}`);
     return await response.json();
 }
 
 async function renderPizza() {
     let pizza = await fetchPizza();
-    console.log(pizza.id);
-    console.log(pizza.name);
-    console.log(pizza.description);
+    let html = '';
+    let htmlSegment = `ID: ${pizza.id}
+                            <br />
+                            Name: ${pizza.name}
+                            <br />
+                            Description: ${pizza.description}
+                            <br />
+                            <br />`;
+    html += htmlSegment;
+    document.getElementById('getPizza').innerHTML = html;
 }
 
 
