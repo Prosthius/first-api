@@ -1,25 +1,20 @@
-let fetchPizzasResponseStatus;
-let fetchPizzasResponseStatusText;
+let response;
 
 // GET /pizzas
 async function fetchPizzas() {
         try {
-            let response = await fetch('http://localhost:5136/pizzas');
-            fetchPizzasResponseStatus = response.status;
-            fetchPizzasResponseStatusText = response.statusText;
+            response = await fetch('http://localhost:5136/pizza');
             return await response.json();
         }
-        catch(err) {
-            return response = 'fail';
-        }
+        catch(err) {}
 }
 
 async function renderPizzas() {
-    var response = await fetchPizzas();
+    var pizzas = await fetchPizzas();
     try {
-        if (typeof response !== 'object') throw `${fetchPizzasResponseStatus}<br />${fetchPizzasResponseStatusText}`;
+        if (typeof pizzas !== 'object') throw `${response.status}<br />${response.statusText}`;
         let html = '';
-        response.forEach(pizza => {
+        pizzas.forEach(pizza => {
             let htmlSegment = `<div class="col-4">
                                 ID: ${pizza.id}
                                 <br />
@@ -44,23 +39,35 @@ async function renderPizzas() {
 
 // GET /pizza/{id}
 async function fetchPizza(id) {
-    id = document.getElementById("getID").value;
-    let response = await fetch(`http://localhost:5136/pizza/${id}`);
-    return await response.json();
+    try {
+        id = document.getElementById("getID").value;
+        response = await fetch(`http://localhost:5136/pizza/${id}`);
+        return await response.json();
+    }
+    catch(err) {}
 }
 
 async function renderPizza() {
-    let pizza = await fetchPizza();
-    let html = '';
-    let htmlSegment = `ID: ${pizza.id}
-                        <br />
-                        Name: ${pizza.name}
-                        <br />
-                        Description: ${pizza.description}
-                        <br />
-                        <br />`;
-    html += htmlSegment;
-    document.getElementById('getPizza').innerHTML = html;
+    try {
+        let pizza = await fetchPizza();
+        if (typeof pizza !== 'object') throw `${response.status}<br />${response.statusText}`;
+        if (pizza === null) throw `That entry doesn't exist`;
+        let html = '';
+        let htmlSegment = `ID: ${pizza.id}
+                            <br />
+                            Name: ${pizza.name}
+                            <br />
+                            Description: ${pizza.description}
+                            <br />
+                            <br />`;
+        html += htmlSegment;
+        document.getElementById('getPizza').innerHTML = html;
+    }
+    catch(err) {
+        document.getElementById('getPizza').innerHTML = `<div class="col">
+                                                            ${err}
+                                                            </div>`;
+    }
 }
 
 
