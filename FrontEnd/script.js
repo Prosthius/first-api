@@ -1,26 +1,44 @@
+let fetchPizzasResponseStatus;
+let fetchPizzasResponseStatusText;
+
 // GET /pizzas
 async function fetchPizzas() {
-    let response = await fetch('http://localhost:5136/pizzas');
-    return await response.json();
+        try {
+            let response = await fetch('http://localhost:5136/pizzas');
+            fetchPizzasResponseStatus = response.status;
+            fetchPizzasResponseStatusText = response.statusText;
+            return await response.json();
+        }
+        catch(err) {
+            return response = 'fail';
+        }
 }
 
 async function renderPizzas() {
-    let pizzas = await fetchPizzas();
-    let html = '';
-    pizzas.forEach(pizza => {
-        let htmlSegment = `<div class="col-4">
-                            ID: ${pizza.id}
-                            <br />
-                            Name: ${pizza.name}
-                            <br />
-                            Description: ${pizza.description}
-                            <br />
-                            <br />
-                            </div>`;
+    var response = await fetchPizzas();
+    try {
+        if (typeof response !== 'object') throw `${fetchPizzasResponseStatus}<br />${fetchPizzasResponseStatusText}`;
+        let html = '';
+        response.forEach(pizza => {
+            let htmlSegment = `<div class="col-4">
+                                ID: ${pizza.id}
+                                <br />
+                                Name: ${pizza.name}
+                                <br />
+                                Description: ${pizza.description}
+                                <br />
+                                <br />
+                                </div>`;
 
-        html += htmlSegment;
-    });
-    document.getElementById('getPizzas').innerHTML = html;
+            html += htmlSegment;
+        });
+        document.getElementById('getPizzas').innerHTML = html;
+    }
+    catch(err) {
+        document.getElementById('getPizzas').innerHTML = `<div class="col-4">
+                                                            ${err}
+                                                            </div>`;
+    }
 }
 
 
